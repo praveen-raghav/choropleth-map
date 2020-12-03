@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Datamap from 'datamaps/dist/datamaps.world.min.js';
 import d3 from 'd3';
-import CanadaJson from './Canada.topo.json';
+import CanadaJson from './World.topo.json';
 
 class ChoroplethMap extends Component {
     componentDidMount() {
@@ -33,7 +33,7 @@ class ChoroplethMap extends Component {
 
         let map = new Datamap({
             element: document.getElementById('cloropleth_map'),
-            scope: 'canada',
+            scope: 'world',
             geographyConfig: {
                 popupOnHover: true,
                 highlightOnHover: true,
@@ -61,7 +61,7 @@ class ChoroplethMap extends Component {
             data: dataset,
             setProjection: function (element) {
                 var projection = d3.geo.mercator()
-                    .center([-106.3468, 68.1304]) // always in [East Latitude, North Longitude]
+                    .center([-0.3468, 50.1304]) // always in [East Latitude, North Longitude]
                     .scale(200)
                     .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 
